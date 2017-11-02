@@ -1,0 +1,23 @@
+# starting nginx on port 80 in the background as a process called nginx
+docker container run --publish 80:80 --detach --name nginx nginx
+
+# starting apache httpd on port 8080 in the background as a process called httpd
+docker container run --publish 8080:80 --detach --name httpd httpd
+
+# starting mysql on port 3306 and passing in an environment variable and value 
+docker container run --publish 3306:3306 --detach --env MYSQL_RANDOM_ROOT_PASSWORD=yes --name mysql mysql
+
+
+# listing the current processes running
+docker container ls -a
+
+# checking the logs of a particular process
+docker container logs mysql # and we find the random generated password
+aecovie3nujei1chae7aeL6Peex6chen in the logs
+
+# stopping the processes, all at once 
+docker stop mysql httpd nginx 
+
+# deleting the processes
+docker container ls -a    #take the first unique 2-3 letters from their id 
+docker container rm e6 e8 79 
