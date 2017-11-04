@@ -1,0 +1,18 @@
+# task: use different Linux distro containers to check curl cli tool version
+
+	1: ubuntu
+	docker image pull ubuntu:14.04
+	docker run -it --name ubuntu ubuntu:14.04 bash	 # no daemon process spawned 
+		$ apt-get update && apt-get install -y curl
+		$ curl --version
+		$ curl 7.35.0 (x86_64-pc-linux-gnu) libcurl/7.35.0 OpenSSL/1.0.1f zlib/1.2.8 libidn/1.28 librtmp/2.3
+	
+	2. centos
+	docker run -it --name centos centos:7 bash
+		$ yum update curl
+		$ curl 7.29.0 (x86_64-redhat-linux-gnu) libcurl/7.29.0 NSS/3.28.4 zlib/1.2.7 libidn/1.28 libssh2/1.4.3
+	
+	3. cleanup
+	docker container rm $(docker container ls -q) -f
+
+# conclusion: ubuntu has a newer version of curl
