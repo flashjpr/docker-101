@@ -45,4 +45,25 @@ docker network disconnect # deatach a network from a container
 	
 	#disconnect
 	docker network disconnect test_network webhost
+### Docker DNS
+** Docker daemon has a built-in DNS server that containers use by default**
+
+Docker Îdefaults the hostname to the container's name, but you can also set aliasess
+Containers shouldn't rely on IP's for inter-communication
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
