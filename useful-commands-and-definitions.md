@@ -91,6 +91,7 @@ docker login  # add docker hub credentials
 	docker login <server> # defaults to logging in Hub, but specific svr can be specified
 docker image push flashjpr/nginx # push to hub
 
+* if you want to create a private docker repo: login to docker hub and create it from there (webapp)
 
 ## Docker Hub
 * hub.docker.com # the apt package system for containers
@@ -99,7 +100,22 @@ docker image push flashjpr/nginx # push to hub
 
 
 
+## Building Images: docker files
 
+** Dockerfile: a recipe for creating your image **
+Dockerfiles work top-down, so order does matter
+
+	
+- Components of Dockerfile:
+	- FROM: required for every dockerfile; minimal distribution
+	- ENV: environment vars; they are prefered to inject key/value is they work everywhere, on every OS and config
+	- RUN: chaining run commands into a single RUN instruction means that only one layer is created for all instructions; shell scripts friendly
+	- EXPOSE: expose ports on the docker virtual network
+	- CMD: required: run this param when container is launched; only one CMD allowerd, so if multiple, last one wins
+
+
+# default filename is 'Dockerfile'
+docker build -f <some-dockerfile> 
 
 
 
