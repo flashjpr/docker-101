@@ -72,6 +72,25 @@ docker image inspect nginx  # default metadata about the image
 ** A container is just a single read/write layer on top of imagee **
 
 
+### Image Tagging & Push to Docker Hub
+
+docker image ls 
+docker image tag --help
+
+** Default tag is latest if not specified  ** # <user>/<repo>/<tag>
+Official Repos: live at the 'root namespace' of the registry, so they don't need account name in front of <repo>
+** Tag: a pointer to a specific image commit **
+	* 'latest' tag is just the default tag, but the image owners should assign it to the newest stable version
+
+docker image tag nginx flashjpr/nginx # add a new tag to an existing image
+
+
+* Uploading an image to docker hub
+docker --help # will find a login command
+docker login  # add docker hub credentials
+	docker login <server> # defaults to logging in Hub, but specific svr can be specified
+docker image push flashjpr/nginx # push to hub
+
 
 ## Docker Hub
 * hub.docker.com # the apt package system for containers
