@@ -117,7 +117,9 @@ Dockerfiles work top-down, so order does matter
 # default filename is 'Dockerfile'
 docker build -f <some-dockerfile> 
 
+docker image build -t customnginx . # note the '.' (DOT) here, which means 'build this docker image in this directory
+# when a dockerfile is being built a second time, it firstly checks every instruction line in its cache; if any line has been changed, all the other instructions/lines past that point will be recomputed
 
-
+#best practice: keep at the top of the Dockerfile the things that change the least
 
 
