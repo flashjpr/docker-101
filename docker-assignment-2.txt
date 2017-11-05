@@ -1,0 +1,15 @@
+# Docker DNS Round Robin
+
+docker network create dude
+docker container run -d --net dude --net-alias search elasticsearch:2 
+docker container run -d --net dude --net-alias search elasticsearch:2 
+# fire-up two instances of elasticsearch, attach them to the network 'dude' and alias them both with 'search'
+
+docker container ls # will show the two elasticsearch containers 
+
+# ns lookup on search 
+docker container --rm --net dude alpine nslookup search 
+
+# on consecutive curl, responses will come from either elasticsearch container
+docker container --rm --net dude centos curl -s search:9200
+
