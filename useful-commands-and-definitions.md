@@ -46,7 +46,7 @@ docker network disconnect # deatach a network from a container
 	#disconnect
 	docker network disconnect test_network webhost
 ### Docker DNS
-** Docker daemon has a built-in DNS server that containers use by default**
+** Docker daemon has a built-in DNS server that containers use by default
 
 Docker Îdefaults the hostname to the container's name, but you can also set aliasess
 Containers shouldn't rely on IP's for inter-communication
@@ -61,9 +61,22 @@ Containers shouldn't rely on IP's for inter-communication
 * small as one file (your app binary) like a golang static binary
 * big as Ubuntu distro with apt, and Apache, PHP, and more installed
 
+### Image Cache
+docker images ls
+docker history nginx:latest # show layers of changes made in image
+docker image inspect nginx  # default metadata about the image
+
+** Images are made up of file system changes and metadata **
+** Each layer is uniquely identified and only stored once on a host **
+** This saves storage space on host and transfer time on push/pull ** 
+** A container is just a single read/write layer on top of imagee **
 
 
 
+## Docker Hub
+* hub.docker.com # the apt package system for containers
+* official images and how to use them 
+* how to discern 'good' public images
 
 
 
