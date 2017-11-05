@@ -53,7 +53,13 @@ Containers shouldn't rely on IP's for inter-communication
 
 
 
+## Docker Images
 
+* app binaries and dependencies
+* metadata about the image data and how to run the image
+* not a complete OS: no kernel, kernel modules(drivers): because the host machine provides all that
+* small as one file (your app binary) like a golang static binary
+* big as Ubuntu distro with apt, and Apache, PHP, and more installed
 
 
 
